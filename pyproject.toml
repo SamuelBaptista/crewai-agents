@@ -1,0 +1,22 @@
+[project]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "SamuelBaptista",email = "samuel.baptista@repense.ai"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "crewai (>=0.95.0,<0.96.0)",
+    "repenseai (>=2.2.0,<3.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "repense-ai"
+url = "https://repense-329495585553.d.codeartifact.us-east-2.amazonaws.com/pypi/repense-ai/simple/"
+priority = "supplemental"
