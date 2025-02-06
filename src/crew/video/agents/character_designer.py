@@ -23,8 +23,8 @@ Especialista em design de personagens infantis, criando descrições detalhadas 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 openai_llm = LLM(
-    model="o1-mini",
-    temperature=0.0,
+    model="o1-preview",
+    temperature=0.5,
     api_key=openai_api_key
 )
 
@@ -42,11 +42,11 @@ agent = Agent(
 DESCRIPTION = """
 Criar um perfil detalhado de uma personagem para geração por IA.
 Considerar o tema da história e a história a ser contada. 
-Manter o formato da arte como 2D digital art, vibrant colors, children's book style.
+O prompt precisa estar em ingles e conter o padrão da arte como 2D digital art, vibrant colors, children's book style.
 """
 
 OUTPUT = """
-Prompt do personagem
+Apenas o prompt do personagem
 """
 
 task = Task(

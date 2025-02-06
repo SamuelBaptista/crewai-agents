@@ -26,8 +26,8 @@ Especialista em criar textos para sistemas text-to-speech."
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 openai_llm = LLM(
-    model="o1-mini",
-    temperature=0.0,
+    model="o1-preview",
+    temperature=0.5,
     api_key=openai_api_key
 )
 

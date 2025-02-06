@@ -73,12 +73,11 @@ if st.button("Gerar História") or st.session_state.click:
     st.text(f"Características: {descrição_personagem['caracteristicas']}\n\nEstilo Visual: {descrição_personagem['estilo_visual']}\n\nPrompt IA: {descrição_personagem['prompt_ia']}")
 
     selector = APISelector(
-        model="stability/generate/default/core", 
+        model="black-forest-labs/FLUX.1.1-pro", 
         model_type="image", 
         aspect_ratio="16:9", 
         style_preset="tile-texture",
         seed=27,
-        secrets_manager=secrets_manager,
     )
 
     prompt_personagem = crew_response.tasks_output[1].to_dict()['prompt_ia']
@@ -112,7 +111,6 @@ if st.button("Gerar História") or st.session_state.click:
         aspect_ratio='16:9',
         style_preset="tile-texture",
         seed=1,
-        secrets_manager=secrets_manager,
     )
 
     seed_image = Image.open(image)

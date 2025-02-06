@@ -26,8 +26,8 @@ Foco em histórias longas e dinâmicas que mantêm a atenção das crianças em 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 openai_llm = LLM(
-    model="o1-mini",
-    temperature=0.0,
+    model="o1-preview",
+    temperature=0.5,
     api_key=openai_api_key
 )
 
