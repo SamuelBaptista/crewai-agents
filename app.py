@@ -9,7 +9,7 @@ from openai import OpenAI
 
 from src.crew.video.video_crew import video_crew
 
-from repenseai.genai.api.selector import APISelector
+from repenseai.genai.selector import APISelector
 from repenseai.genai.tasks.api_task import Task
 
 
@@ -42,8 +42,6 @@ st.title("Video Crew")
 st.write("A Video Crew é um grupo de especialistas em criação de conteúdo de vídeo, incluindo histórias, cenas, personagens e roteiros de voz.")
 
 tema = st.text_input("Nome do Projeto", "História Infantil para YouTube")
-
-print(st.session_state.step)
 
 if st.button("Gerar História") or st.session_state.click:
 
@@ -80,6 +78,7 @@ if st.button("Gerar História") or st.session_state.click:
         aspect_ratio="16:9", 
         style_preset="tile-texture",
         seed=27,
+        secrets_manager=secrets_manager,
     )
 
     prompt_personagem = crew_response.tasks_output[1].to_dict()['prompt_ia']
@@ -113,6 +112,7 @@ if st.button("Gerar História") or st.session_state.click:
         aspect_ratio='16:9',
         style_preset="tile-texture",
         seed=1,
+        secrets_manager=secrets_manager,
     )
 
     seed_image = Image.open(image)
@@ -224,4 +224,19 @@ if st.button("Gerar História") or st.session_state.click:
             st.session_state.audio = None
 
         st.rerun()
-    
+else:
+    narracao = st.text_area("Texto da narração")
+    if st.button("Gerar Narração"):
+        client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+        tts_response = client.audio.speech.create(
+            model="tts-1-hd",
+            voice="shimmer",
+            input=narracao,
+            response_format="wav",
+            speed=1.0,
+        )
+        
+
+        if tts_response:
+            st.audio(tts_response.content)

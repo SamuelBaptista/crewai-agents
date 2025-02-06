@@ -9,8 +9,10 @@ readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "crewai (>=0.95.0,<0.96.0)",
-    "repenseai (>=2.2.0,<3.0.0)",
-    "streamlit (>=1.41.1,<2.0.0)"
+    "repenseai (==2.2.0)",
+    "streamlit (>=1.41.1,<2.0.0)",
+    "pysqlite3-binary (>=0.5.4,<0.6.0)",
+    "python-dotenv (>=1.0.1,<2.0.0)"
 ]
 
 [build-system]

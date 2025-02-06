@@ -27,7 +27,7 @@ Tem foco em cenas com imagens estáticas.
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 openai_llm = LLM(
-    model="gpt-4o",
+    model="o1-mini",
     temperature=0.0,
     api_key=openai_api_key
 )

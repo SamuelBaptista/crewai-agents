@@ -23,19 +23,19 @@ Foco em histórias longas e dinâmicas que mantêm a atenção das crianças em 
 
 # Agent
 
-anthropic_api_key = os.getenv("ANTHROPIC_API_KEY")
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
-anthropic_llm = LLM(
-    model="claude-3-5-sonnet-20241022",
+openai_llm = LLM(
+    model="o1-mini",
     temperature=0.0,
-    api_key=anthropic_api_key
+    api_key=openai_api_key
 )
 
 agent = Agent(
     role=ROLE,
     goal=GOAL,
     backstory=BACKSTORY,
-    llm=anthropic_llm,
+    llm=openai_llm,
     verbose=False
 )
 
