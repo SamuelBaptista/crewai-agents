@@ -23,19 +23,19 @@ Foco em histórias longas e dinâmicas que mantêm a atenção das crianças em 
 
 # Agent
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
 
-openai_llm = LLM(
-    model="o1-preview",
+llm = LLM(
+    model="o1-mini",
     temperature=0.5,
-    api_key=openai_api_key
+    api_key=api_key
 )
 
 agent = Agent(
     role=ROLE,
     goal=GOAL,
     backstory=BACKSTORY,
-    llm=openai_llm,
+    llm=llm,
     verbose=False
 )
 
